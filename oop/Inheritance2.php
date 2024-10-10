@@ -1,16 +1,16 @@
 <?php
 
-
-class produk // Mendefinisikan class Produk
+// Mendefinisikan class Produk
+class Produk 
 {
-    public $judul,
-           $penulis,
-           $penerbit,
-           $harga,
-           $jmlHalaman,
-           $waktuMain;
+  public $judul,
+          $penulis,
+          $penerbit,
+          $harga,
+          $jmlHalaman,
+          $waktuMain;
 
-    // Konstruktor: Digunakan untuk menginisialisasi objek produk saat dibuat.
+    // Konstruktor: Digunakan untuk menginisialisasi objek Produk saat dibuat.
     public function __construct($tipe, $judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlHalaman = 0, $waktuMain = 0)
     {
         $this->judul = $judul;
@@ -33,18 +33,18 @@ class produk // Mendefinisikan class Produk
     }
 }
 
-// Kelas cetakInfoProduk: Kelas ini bertugas untuk mencetak informasi produk.
-class cetakInfoProduk
+// Kelas CetakInfoProduk: Kelas ini bertugas untuk mencetak informasi Produk.
+class CetakInfoProduk
 {
-    public function cetak(produk $produk)
+    public function cetak(Produk $Produk)
     {
-        $str = "{$produk->judul} | {$produk->getLabel()} {$produk->harga}";
+        $str = "{$Produk->judul} | {$Produk->getLabel()} {$Produk->harga}";
         return $str;
     }
 }
 
-// Kelas komik: Subclass dari produk untuk produk komik.
-class komik extends produk
+// Kelas Komik: Subclass dari Produk untuk Produk Komik.
+class Komik extends Produk
 {
     public function getInfoProduk()
     {
@@ -53,17 +53,17 @@ class komik extends produk
     }
 }
 
-// Kelas game: Subclass dari produk untuk produk game.
-class game extends produk
+// Kelas Game: Subclass dari Produk untuk Produk Game.
+class Game extends Produk
 {
     public function getInfoProduk()
     {
-        $str = "Game: {$this->judul} | {$this->getLabel()} {$this->harga} - {$this->waktuMain} jam";
+        $str = "Game: {$this->judul} | {$this->getLabel()} {$this->harga} - {$this->waktuMain} Jam";
         return $str;
     }
 }
 
-$produk1 = new komik("komik", "Naruto", "Masashi", "Shonen Jump", 30000, 100, 0);
-$produk2 = new game("game", "Uncharted", "Neil", "Sony Computer", 30000, 0, 50);
+$produk1 = new Komik("Komik", "Naruto", "Masashi", "Shonen Jump", 30000, 100, 0);
+$produk2 = new Game("Game", "Uncharted", "Neil", "Sony Computer", 30000, 0, 50);
 
 echo $produk1->getInfoProduk();
