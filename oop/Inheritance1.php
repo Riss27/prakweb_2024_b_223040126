@@ -32,7 +32,7 @@ class Produk {
       $str .= " - {$this->jmlHalaman} Halaman.";
     // Jika tipe produk adalah Game, tambahkan informasi waktu main
     } else if( $this->tipe == "Game" ) {
-      $str .= " ~ {$this->waktuMain} Jam.";
+      // $str .= " ~ {$this->waktuMain} Jam.";
     }
 
     return $str;
