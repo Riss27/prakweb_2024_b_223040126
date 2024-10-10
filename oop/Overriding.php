@@ -37,8 +37,8 @@ class CetakInfoProduk
     // Metode untuk mencetak info Produk dari kelas Produk
     public function cetak(Produk $Produk)
     {
-        $str = $Produk->getInfoProduk();
-        return $str;
+      $str = "{$Produk->judul} | {$Produk->getLabel()} (Rp. {$Produk->harga})";
+      return $str;
     }
 }
 
@@ -75,7 +75,7 @@ class Game extends Produk
 
     public function getInfoProduk()
     {
-        $str = "Game: " . parent::getInfoProduk() . " - {$this->waktuMain} jam";
+        $str = "Game: " . parent::getInfoProduk() . " ~ {$this->waktuMain} jam";
         return $str;
     }
 }
