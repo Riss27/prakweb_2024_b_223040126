@@ -38,8 +38,8 @@ class CetakInfoProduk
 {
     public function cetak(Produk $Produk)
     {
-        $str = "{$Produk->judul} | {$Produk->getLabel()} {$Produk->harga}";
-        return $str;
+      $str = "{$Produk->judul} | {$Produk->getLabel()} (Rp. {$Produk->harga})";
+      return $str;
     }
 }
 
@@ -58,12 +58,12 @@ class Game extends Produk
 {
     public function getInfoProduk()
     {
-        $str = "Game: {$this->judul} | {$this->getLabel()} {$this->harga} - {$this->waktuMain} Jam";
+        $str = "Game: {$this->judul} | {$this->getLabel()} {$this->harga} ~ {$this->waktuMain} Jam";
         return $str;
     }
 }
 
-$produk1 = new Komik("Komik", "Naruto", "Masashi", "Shonen Jump", 30000, 100, 0);
-$produk2 = new Game("Game", "Uncharted", "Neil", "Sony Computer", 30000, 0, 50);
+$produk1 = new Komik("Naruto", "Masashi", "Shonen Jump", 30000, 100);
+$produk2 = new Game("Uncharted", "Neil", "Sony Computer", 30000, 50);
 
 echo $produk1->getInfoProduk();
