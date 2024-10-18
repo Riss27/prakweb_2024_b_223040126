@@ -13,15 +13,16 @@
       </button>
       <br>
       <h3>Daftar Mahasiswa</h3>
-      <ul>
+      <ul class="list-group">
         <?php foreach ($data['mhs'] as $mhs) : ?>
-          <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <?= $mhs['nama']; ?>
-              <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?> " class="badge text-bg-dark"> Detail</a>
-            </li>
-          <?php endforeach; ?>
-          </ul>
+          <li class="list-group-item">
+            <?= $mhs['nama']; ?>
+            <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge bg-danger float-end ms-1" onclick="return confirm('Yakin?');">Hapus</a>
+            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge bg-primary float-end ms-1">Detail</a>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+      
     </div>
   </div>
   </div>
